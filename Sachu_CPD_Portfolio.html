@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachu S Nair — CPD Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2540;
+  --blue: #1a4b82;
+  --accent: #2979c4;
+  --gold: #c8963e;
+  --light-blue: #deeaf7;
+  --text: #1c2b3a;
+  --muted: #607080;
+  --bg: #f6f9fc;
+  --white: #fff;
+  --border: #d0dce8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,37,64,0.97);backdrop-filter:blur(8px);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-brand{font-family:'DM Serif Display',serif;color:white;font-size:0.95rem;letter-spacing:0.04em}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.78rem;letter-spacing:0.07em;text-transform:uppercase;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:white}
+
+.hero{background:linear-gradient(140deg,#091a30 0%,#15386a 55%,#0b1e38 100%);padding:118px 2rem 72px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 25%,rgba(41,121,196,0.28) 0%,transparent 60%),radial-gradient(ellipse at 15% 85%,rgba(200,150,62,0.12) 0%,transparent 50%)}
+.hero-inner{position:relative;max-width:740px;margin:0 auto}
+.hero-badge{display:inline-block;background:rgba(200,150,62,0.15);border:1px solid rgba(200,150,62,0.4);color:var(--gold);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;padding:5px 14px;border-radius:2px;margin-bottom:1.2rem;animation:fadeUp 0.5s ease both}
+.hero h1{font-family:'DM Serif Display',serif;color:white;font-size:clamp(2.2rem,5.5vw,3.5rem);line-height:1.1;margin-bottom:0.5rem;animation:fadeUp 0.5s 0.1s ease both}
+.hero-role{color:var(--gold);font-size:1rem;font-weight:500;margin-bottom:0.5rem;animation:fadeUp 0.5s 0.15s ease both}
+.hero-sub{color:rgba(255,255,255,0.55);font-size:0.88rem;margin-bottom:2rem;animation:fadeUp 0.5s 0.2s ease both}
+.hero-pills{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap;animation:fadeUp 0.5s 0.25s ease both}
+.pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.72);padding:6px 14px;border-radius:100px;font-size:0.78rem;font-weight:500;display:flex;align-items:center;gap:0.5rem}
+.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+.container{max-width:1020px;margin:0 auto;padding:0 1.5rem}
+.section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.sec-head{display:flex;align-items:center;gap:0.9rem;margin-bottom:2rem}
+.sec-num{background:var(--navy);color:white;font-size:0.72rem;font-weight:700;width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--navy)}
+
+/* profile */
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+.pitem{background:white;border:1px solid var(--border);border-radius:8px;padding:0.9rem 1.1rem}
+.plabel{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.09em;color:var(--muted);font-weight:600;margin-bottom:2px}
+.pval{font-size:0.93rem;font-weight:500;color:var(--text)}
+
+/* goals */
+.goals{display:flex;flex-direction:column;gap:0.6rem}
+.goal{display:flex;gap:0.7rem;align-items:flex-start;background:white;border:1px solid var(--border);border-radius:8px;padding:0.8rem 1rem}
+.gicon{color:var(--gold);margin-top:2px;flex-shrink:0;font-size:1rem}
+
+/* table */
+.tw{overflow-x:auto;border-radius:10px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+table{width:100%;border-collapse:collapse;background:white;font-size:0.82rem}
+thead tr{background:var(--navy)}
+thead th{color:white;font-weight:600;padding:11px 12px;text-align:left;font-size:0.77rem;letter-spacing:0.03em;white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.15s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:nth-child(even){background:#f8fbff}
+tbody tr:hover{background:#edf5ff}
+tbody td{padding:9px 12px;vertical-align:top}
+tbody td:first-child{color:var(--muted);font-size:0.78rem;white-space:nowrap}
+.tag-pm{background:#e8f0fe;color:#1a4b82;font-size:0.68rem;padding:2px 7px;border-radius:100px;font-weight:600;white-space:nowrap}
+.tag-tech{background:#fef3e2;color:#a05c00;font-size:0.68rem;padding:2px 7px;border-radius:100px;font-weight:600;white-space:nowrap}
+.tag-lead{background:#e6f4ea;color:#1e6e3a;font-size:0.68rem;padding:2px 7px;border-radius:100px;font-weight:600;white-space:nowrap}
+.tag-ops{background:#f3e8ff;color:#5b21b6;font-size:0.68rem;padding:2px 7px;border-radius:100px;font-weight:600;white-space:nowrap}
+
+/* reflection */
+.ref-card{background:white;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1.25rem;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.ref-head{background:var(--navy);padding:0.8rem 1.25rem;display:flex;justify-content:space-between;align-items:center}
+.ref-head h3{color:white;font-size:0.92rem;font-weight:600}
+.ref-head .rtag{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-size:0.7rem;padding:3px 9px;border-radius:100px}
+.ref-body{display:grid;grid-template-columns:1fr 1fr}
+.rc{padding:0.9rem 1.1rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.rc:nth-child(2n){border-right:none}
+.rc:nth-child(3),.rc:nth-child(4){border-bottom:none}
+.rclabel{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);font-weight:600;margin-bottom:0.3rem}
+.rc p{font-size:0.85rem;color:var(--text)}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.9rem}
+.skill-card{background:white;border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.2rem}
+.skill-name{font-weight:600;color:var(--navy);font-size:0.9rem;margin-bottom:0.2rem}
+.skill-link{font-size:0.77rem;color:var(--muted);margin-bottom:0.6rem}
+.bar-track{height:5px;background:var(--light-blue);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:10px;transition:width 1s ease}
+.bar-label{font-size:0.72rem;color:var(--muted);margin-top:0.35rem}
+
+/* plan */
+.plan-item{background:white;border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;display:grid;grid-template-columns:1fr auto;gap:0.5rem;align-items:start;margin-bottom:0.75rem}
+.pa{font-weight:600;font-size:0.9rem;color:var(--navy)}
+.pg{font-size:0.83rem;color:var(--muted);margin-top:2px}
+.pdate{background:var(--light-blue);color:var(--blue);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:100px;white-space:nowrap;align-self:start}
+
+/* decl */
+.decl{background:linear-gradient(135deg,var(--navy),#1a3a6e);color:white;border-radius:12px;padding:2rem 2.5rem;text-align:center}
+.decl p{color:rgba(255,255,255,0.7);font-size:0.88rem;margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto}
+.sig-row{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.sig-item{text-align:center}
+.sig-blank{width:160px;border-bottom:1px solid rgba(255,255,255,0.3);height:34px;margin-bottom:0.3rem}
+.sig-lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.45)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.profile-grid,.skills-grid,.ref-body{grid-template-columns:1fr}.rc:nth-child(3){border-bottom:1px solid var(--border)}.nav-links{display:none}.plan-item{grid-template-columns:1fr}}
+@media print{nav{display:none}.hero{padding-top:2rem}body{background:white}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Sachu S Nair &nbsp;<span>|</span>&nbsp; CPD Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#log">CPD Log</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#plan">Next Steps</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📋 CPD Portfolio — Operations &amp; Project Management</div>
+    <h1>Sachu S Nair, MBA</h1>
+    <div class="hero-role">Operations Lead &amp; Project Management Professional &nbsp;·&nbsp; PRINCE2® 7 Certified</div>
+    <div class="hero-sub">London, UK &nbsp;·&nbsp; sachusnair.uk@gmail.com &nbsp;·&nbsp; 2021 – 2026</div>
+    <div class="hero-pills">
+      <div class="pill"><span class="dot"></span>9+ Years Cross-Industry Experience</div>
+      <div class="pill"><span class="dot"></span>Self-Directed Learning</div>
+      <div class="pill"><span class="dot"></span>20+ Certifications</div>
+      <div class="pill"><span class="dot"></span>Committed to Growth</div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:3rem;padding-bottom:4rem">
+
+  <!-- 1. PROFILE -->
+  <section class="section" id="profile">
+    <div class="sec-head"><div class="sec-num">01</div><h2 class="sec-title">Personal Details</h2></div>
+    <div class="profile-grid">
+      <div class="pitem"><div class="plabel">Full Name</div><div class="pval">Sachu S Nair</div></div>
+      <div class="pitem"><div class="plabel">Post-Nominal</div><div class="pval">MBA</div></div>
+      <div class="pitem"><div class="plabel">Current Role</div><div class="pval">Operations Lead Manager (Founding Team)</div></div>
+      <div class="pitem"><div class="plabel">Organisation</div><div class="pval">Centurion Staunch — London</div></div>
+      <div class="pitem"><div class="plabel">Sector</div><div class="pval">Business Consulting / Operations &amp; Strategy</div></div>
+      <div class="pitem"><div class="plabel">Qualification</div><div class="pval">MBA — University of Bedfordshire Business School</div></div>
+      <div class="pitem"><div class="plabel">Portfolio Period</div><div class="pval">2021 – 2026 (Ongoing)</div></div>
+      <div class="pitem"><div class="plabel">Contact</div><div class="pval">sachusnair.uk@gmail.com &nbsp;·&nbsp; +44 7448 212470</div></div>
+    </div>
+  </section>
+
+  <!-- 2. SUMMARY -->
+  <section class="section" id="summary">
+    <div class="sec-head"><div class="sec-num">02</div><h2 class="sec-title">Professional Summary &amp; CPD Rationale</h2></div>
+    <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;font-size:0.93rem;line-height:1.8">
+      <p>I am an Operations and Project Management professional with 9+ years of cross-industry experience, currently serving as Operations Lead Manager at Centurion Staunch, a London-based consultancy. My career spans operational strategy, process design, workforce planning, and cross-functional leadership. I hold an MBA and PRINCE2® 7 Foundation certification, and I treat CPD as a serious, structured, self-directed practice.</p>
+      <br>
+      <p>My CPD investment is focused on deepening project management expertise, building capability in data and digital tools, and strengthening my ability to lead operations across complex, multi-stakeholder environments — everything below has been pursued in my own time, driven entirely by personal ambition and commitment to professional excellence.</p>
+    </div>
+    <div class="goals">
+      <div class="goal"><span class="gicon">◆</span><span style="font-size:0.9rem">Deepen project management expertise through formal certification (PRINCE2®, AgilePM, PMP) and applied practice</span></div>
+      <div class="goal"><span class="gicon">◆</span><span style="font-size:0.9rem">Build technical capability across ERP systems (SAP), data tools (Tableau, SQL), and AI applications in business</span></div>
+      <div class="goal"><span class="gicon">◆</span><span style="font-size:0.9rem">Apply Lean and Six Sigma principles to deliver measurable process improvements in operational roles</span></div>
+      <div class="goal"><span class="gicon">◆</span><span style="font-size:0.9rem">Develop leadership skills to support senior operational and consulting responsibilities</span></div>
+      <div class="goal"><span class="gicon">◆</span><span style="font-size:0.9rem">Maintain professional community engagement through APM membership and industry learning</span></div>
+    </div>
+  </section>
+
+  <!-- 3. CPD LOG -->
+  <section class="section" id="log">
+    <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">CPD Activity Log</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>Date</th><th>Certification / Activity</th><th>Provider</th><th>Category</th><th>Key Skills / Outcome</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Mar 2026</td><td><strong>Generative AI Overview for Project Managers</strong></td><td>Project Management Institute</td><td><span class="tag-pm">PM</span></td><td>AI in project management, GenAI for ops</td></tr>
+          <tr><td>Feb 2026</td><td><strong>PRINCE2® 7 Foundation Certification</strong></td><td>PeopleCert</td><td><span class="tag-pm">PM</span></td><td>Project governance, stakeholder mgmt, risk, sustainability in PM</td></tr>
+          <tr><td>Nov 2025</td><td>Certified Airline Management Professional</td><td>Sqilah Advanced Learnings</td><td><span class="tag-ops">Ops</span></td><td>Ops management, fleet planning, organisational structure</td></tr>
+          <tr><td>Oct 2025</td><td>Adapting Leadership to Behavioral Styles</td><td>LinkedIn Learning</td><td><span class="tag-lead">Leadership</span></td><td>Adaptive leadership, people management, behavioural styles</td></tr>
+          <tr><td>Sep 2025</td><td>Generative AI for Business Leaders</td><td>LinkedIn Learning</td><td><span class="tag-tech">Tech</span></td><td>AI strategy, GenAI applications for leadership &amp; decision-making</td></tr>
+          <tr><td>Aug 2025</td><td>Lean Six Sigma: Analyze, Improve &amp; Control</td><td>LinkedIn Learning</td><td><span class="tag-ops">Ops</span></td><td>Process improvement, waste reduction, DMAIC methodology</td></tr>
+          <tr><td>Apr 2025</td><td>Altea Full Weight &amp; Balance — Royal Jordanian</td><td>Royal Jordanian</td><td><span class="tag-ops">Ops</span></td><td>Aircraft 787/A320, precision load operations, safety compliance</td></tr>
+          <tr><td>Apr 2025</td><td>Altea Full Weight &amp; Balance — LOT Polish Airlines</td><td>LOT Polish Airlines</td><td><span class="tag-ops">Ops</span></td><td>Aircraft 737/787, multi-fleet load compliance</td></tr>
+          <tr><td>Apr 2024</td><td>Altea FM Full Weight &amp; Balance — Menzies</td><td>Menzies Aviation</td><td><span class="tag-ops">Ops</span></td><td>Operational compliance, load sheet accuracy</td></tr>
+          <tr><td>Apr 2024</td><td>Data Visualisation in Tableau</td><td>Great Learning</td><td><span class="tag-tech">Tech</span></td><td>Dashboard design, data storytelling, Tableau</td></tr>
+          <tr><td>Apr 2024</td><td>Introduction to Database and SQL</td><td>Great Learning</td><td><span class="tag-tech">Tech</span></td><td>MySQL, database querying, data management</td></tr>
+          <tr><td>Sep 2023</td><td>SAP S/4HANA — Zero to Expert</td><td>Udemy</td><td><span class="tag-tech">Tech</span></td><td>SAP ERP, S/4HANA modules, enterprise resource planning</td></tr>
+          <tr><td>Jul 2023</td><td>Altéa FM Ramp Clearance eLearning</td><td>Finnair</td><td><span class="tag-ops">Ops</span></td><td>Ramp operations compliance, safety procedures</td></tr>
+          <tr><td>Sep 2022</td><td>LID Training Programme</td><td>Ryanair</td><td><span class="tag-ops">Ops</span></td><td>Load control, dangerous goods, ramp operations</td></tr>
+          <tr><td>Jun 2022</td><td>Internship Experience UK — Business &amp; Marketing</td><td>Bright Network</td><td><span class="tag-lead">Business</span></td><td>Business strategy, operations, marketing fundamentals</td></tr>
+          <tr><td>May 2022</td><td>Agile Virtual Experience Program</td><td>JPMorganChase</td><td><span class="tag-pm">PM</span></td><td>Agile in financial services, iterative delivery</td></tr>
+          <tr><td>Apr 2022</td><td>Project Management Virtual Experience</td><td>Accenture</td><td><span class="tag-pm">PM</span></td><td>PM consulting lifecycle, stakeholder communication</td></tr>
+          <tr><td>Oct 2021</td><td>Ready, Set, Agile! Virtual Experience Program</td><td>Cognizant</td><td><span class="tag-pm">PM</span></td><td>Agile frameworks, sprint planning, retrospectives</td></tr>
+          <tr><td>Jul 2021</td><td>Internship Experience UK — Engineering &amp; Infrastructure</td><td>Bright Network</td><td><span class="tag-ops">Ops</span></td><td>Infrastructure ops, project delivery fundamentals</td></tr>
+          <tr><td>Jul 2021</td><td>APM Student Membership</td><td>Association for Project Management</td><td><span class="tag-pm">PM</span></td><td>PM community, resources, best practice access (ongoing)</td></tr>
+          <tr><td>2022</td><td>AgilePM Foundation</td><td>IT Career Switch</td><td><span class="tag-pm">PM</span></td><td>Agile principles, lifecycle, delivery frameworks</td></tr>
+          <tr><td>2022</td><td>PRINCE2® Foundation (original)</td><td>IT Career Switch</td><td><span class="tag-pm">PM</span></td><td>PM principles, themes, processes</td></tr>
+          <tr><td>2022</td><td>Business Analysis Foundation</td><td>IT Career Switch</td><td><span class="tag-pm">PM</span></td><td>Requirements gathering, gap analysis, use case design</td></tr>
+          <tr><td>2022</td><td>Change Management Foundation</td><td>IT Career Switch</td><td><span class="tag-lead">Leadership</span></td><td>Change strategy, stakeholder engagement, comms plans</td></tr>
+          <tr><td>2022</td><td>Risk Management</td><td>IT Career Switch</td><td><span class="tag-pm">PM</span></td><td>Risk identification, analysis, mitigation planning</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4. REFLECTION -->
+  <section class="section" id="reflection">
+    <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">Key Reflections &amp; Applied Learning</h2></div>
+
+    <div class="ref-card">
+      <div class="ref-head"><h3>PRINCE2® 7 Foundation Certification</h3><span class="rtag">PeopleCert · Feb 2026 · ~40 hrs</span></div>
+      <div class="ref-body">
+        <div class="rc"><div class="rclabel">What I Did</div><p>Completed PRINCE2® 7 Foundation independently — the updated edition covering sustainability, digital delivery, and people management alongside core governance principles. Studied in my own time over 6 weeks.</p></div>
+        <div class="rc"><div class="rclabel">What I Learned</div><p>Deepened understanding of structured project governance: themes, processes, and tailoring principles across project environments. PRINCE2® 7 brought new emphasis on people skills and hybrid delivery approaches.</p></div>
+        <div class="rc"><div class="rclabel">How I Applied It</div><p>Immediately applied at Centurion Staunch — built a more structured project initiation process, defined clearer RACI roles, and introduced stage-gate reviews for new service delivery engagements.</p></div>
+        <div class="rc"><div class="rclabel">Impact on Practice</div><p>Credible, widely recognised PM framework now underpins operational decisions. Increased confidence in governance conversations with clients and senior leadership stakeholders.</p></div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-head"><h3>Lean Six Sigma: Analyze, Improve &amp; Control</h3><span class="rtag">LinkedIn Learning · Aug 2025 · ~5 hrs</span></div>
+      <div class="ref-body">
+        <div class="rc"><div class="rclabel">What I Did</div><p>Completed the Analyze, Improve, and Control modules of Lean Six Sigma, focusing on root cause analysis, process mapping, measurement systems, and control charts.</p></div>
+        <div class="rc"><div class="rclabel">What I Learned</div><p>Practical tools for identifying waste, reducing variation, and sustaining process improvements. Gained confidence in applying DMAIC methodology to operational challenges.</p></div>
+        <div class="rc"><div class="rclabel">How I Applied It</div><p>Applied to workflow redesign at Centurion Staunch — mapped delivery processes, identified bottlenecks, and proposed SOP improvements that reduced rework cycles and improved consistency.</p></div>
+        <div class="rc"><div class="rclabel">Impact on Practice</div><p>Strengthened ability to lead process improvement with data-backed rationale rather than purely experience-based judgement. Now the go-to approach for any operational efficiency conversation.</p></div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-head"><h3>SAP S/4HANA — Zero to Expert</h3><span class="rtag">Udemy · Sep 2023 · ~20 hrs</span></div>
+      <div class="ref-body">
+        <div class="rc"><div class="rclabel">What I Did</div><p>Completed a comprehensive SAP S/4HANA course independently — covering procurement, finance, logistics, and project systems modules within the SAP ERP ecosystem.</p></div>
+        <div class="rc"><div class="rclabel">What I Learned</div><p>Working knowledge of enterprise resource planning systems, how cross-functional processes integrate in SAP, and how to navigate core operational modules.</p></div>
+        <div class="rc"><div class="rclabel">How I Applied It</div><p>Used SAP knowledge to better engage with clients operating on SAP platforms, and to contribute meaningfully to ERP-related business analysis and transformation discussions.</p></div>
+        <div class="rc"><div class="rclabel">Impact on Practice</div><p>Significantly widened technical credibility — now able to engage in ERP conversations common across large enterprise clients and consulting engagements.</p></div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-head"><h3>Generative AI for Business Leaders &amp; GenAI for PM</h3><span class="rtag">LinkedIn / PMI · 2025–2026</span></div>
+      <div class="ref-body">
+        <div class="rc"><div class="rclabel">What I Did</div><p>Completed two AI-focused programmes: LinkedIn Learning's GenAI for Business Leaders (Sep 2025) and PMI's Generative AI Overview for Project Managers (Mar 2026).</p></div>
+        <div class="rc"><div class="rclabel">What I Learned</div><p>How generative AI tools can be integrated into project planning, stakeholder communications, and operational decision-making. Covered prompt engineering, AI governance, and responsible use.</p></div>
+        <div class="rc"><div class="rclabel">How I Applied It</div><p>Actively exploring AI-assisted tools in operational workflows — documenting use cases for consultancy clients and building internal AI usage guidance within Centurion Staunch.</p></div>
+        <div class="rc"><div class="rclabel">Impact on Practice</div><p>Positioned as a forward-thinking professional who bridges traditional operations with emerging technology — a differentiator in client-facing consultancy conversations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SKILLS -->
+  <section class="section" id="skills">
+    <div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">Skills &amp; Competency Development</h2></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-name">Project Management</div>
+        <div class="skill-link">PRINCE2® 7, AgilePM, Accenture PM VE, Cognizant Agile, Risk Mgmt, APM</div>
+        <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+        <div class="bar-label">Advanced</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Process Improvement (Lean / Six Sigma)</div>
+        <div class="skill-link">Lean Six Sigma AIC, Change Mgmt Foundation, Business Analysis Foundation</div>
+        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+        <div class="bar-label">Proficient → Advanced</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">ERP &amp; Enterprise Technology</div>
+        <div class="skill-link">SAP S/4HANA, SQL/MySQL, Zoho One Suite</div>
+        <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+        <div class="bar-label">Proficient</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Data &amp; Analytics</div>
+        <div class="skill-link">Tableau, SQL, Lean Six Sigma measurement, Power BI</div>
+        <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+        <div class="bar-label">Developing → Proficient</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">AI &amp; Digital Strategy</div>
+        <div class="skill-link">GenAI for Business Leaders, GenAI for PM (PMI), SAP digital transformation</div>
+        <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
+        <div class="bar-label">Developing → Proficient</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Leadership &amp; Stakeholder Management</div>
+        <div class="skill-link">Adaptive Leadership, Change Mgmt, PRINCE2® 7 people focus, APM</div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+        <div class="bar-label">Proficient</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FUTURE PLAN -->
+  <section class="section" id="plan">
+    <div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">Future CPD Plan</h2></div>
+    <div class="plan-item"><div><div class="pa">PRINCE2® 7 Practitioner</div><div class="pg">Progress from Foundation to Practitioner — strengthen project governance and PM credibility at senior level</div></div><span class="pdate">Q3 2026</span></div>
+    <div class="plan-item"><div><div class="pa">PMP® Certification (PMI)</div><div class="pg">Internationally recognised PM qualification to complement PRINCE2® and expand global employability</div></div><span class="pdate">Q4 2026</span></div>
+    <div class="plan-item"><div><div class="pa">Lean Six Sigma Green Belt</div><div class="pg">Formalise process improvement expertise with an accredited qualification to support consultancy delivery</div></div><span class="pdate">Q2 2026</span></div>
+    <div class="plan-item"><div><div class="pa">Power BI (Advanced)</div><div class="pg">Strengthen operational dashboard and reporting capability for client-facing consultancy work</div></div><span class="pdate">Q2 2026</span></div>
+    <div class="plan-item"><div><div class="pa">Strategic Leadership Programme</div><div class="pg">Develop executive presence and strategic thinking for senior leadership responsibilities</div></div><span class="pdate">Ongoing</span></div>
+  </section>
+
+  <!-- 7. DECLARATION -->
+  <section class="section" id="declaration" style="border-bottom:none">
+    <div class="sec-head"><div class="sec-num">07</div><h2 class="sec-title">Declaration</h2></div>
+    <div class="decl">
+      <p>I confirm that all CPD activities recorded in this portfolio are accurate and a true reflection of my professional development. All activities were self-directed, undertaken voluntarily in my own time, driven by genuine commitment to continuous improvement.</p>
+      <div class="sig-row">
+        <div class="sig-item"><div class="sig-blank"></div><div class="sig-lbl">Signature</div></div>
+        <div class="sig-item"><div class="sig-blank" style="display:flex;align-items:flex-end;padding-bottom:4px"><span style="font-size:0.85rem;color:rgba(255,255,255,0.7)">Sachu S Nair</span></div><div class="sig-lbl">Full Name</div></div>
+        <div class="sig-item"><div class="sig-blank" style="display:flex;align-items:flex-end;padding-bottom:4px"><span style="font-size:0.85rem;color:rgba(255,255,255,0.7)">April 2026</span></div><div class="sig-lbl">Date</div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
